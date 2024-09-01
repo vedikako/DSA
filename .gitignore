@@ -1,0 +1,18 @@
+# Ignore everything by default
+*
+
+# Do not ignore .gitignore file
+!.gitignore
+
+!Linked List
+
+# Do not ignore all .c files anywhere in the project
+!**/*.c
+
+# Ignore specific file types globally (e.g., object and executable files)
+*.exe
+*.o
+
+# Optionally ignore specific tool-generated folders
+.vscode/
+build/
