@@ -36,8 +36,20 @@ void createNode(){
     
 }
 
+void display(){
+    temp = head;
+    
+    while (temp!=NULL)
+    {
+        printf("%d", &temp->data);
+        temp = temp->next;
+    }
+    
+}
+
 int main(){
     
     createNode();
+    display();
     return 0;
 }
