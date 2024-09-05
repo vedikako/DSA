@@ -62,7 +62,7 @@ void insertMiddle(int value){
         scanf("%d", &num);
 
          if (num < 1 || num > value + 1) {
-            printf("Invalid position\n");
+            printf("Invalid position\n");  
             return;
         }
 
