@@ -54,7 +54,7 @@ int main()
  int A[]={3,5,7,10,25,8,32,2};
  create(A,8);
 
- printf("Max %d \n", Max(first));
+ printf("Max %d \n", Max(first)); 
 
 
 

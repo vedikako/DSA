@@ -5,6 +5,7 @@
 !.gitignore
 
 !Linked List
+!Sorting
 
 # Do not ignore all .c files anywhere in the project
 !**/*.c
