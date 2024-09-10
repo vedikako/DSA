@@ -5,7 +5,7 @@ struct Queue{
     int size;
     int rear;
     int front;
-    struct Queue *Q;
+    int *Q;
 }*q;
 
 void create(struct Queue *q, int size){
@@ -15,7 +15,7 @@ void create(struct Queue *q, int size){
 }
 
 void enqueue(struct Queue *q, int x){
-    if(q->rear=q->size-1){
+    if(q->rear==q->size-1){
         printf("this is overflowing\n");
     }else{
         q->rear ++;
@@ -38,7 +38,14 @@ int dequeue(struct Queue *q){
 
 int main(){
 
-    create(&q, 5);
+    create(q, 5);
+
+    enqueue(q, 10);
+    enqueue(q, 20);
+    enqueue(q, 30);
+
+    printf("Dequeued: %d\n", dequeue(q));
+    printf("Dequeued: %d\n", dequeue(q));
 
     return 0;
 }
