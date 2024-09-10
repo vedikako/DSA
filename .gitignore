@@ -6,6 +6,7 @@
 
 !Linked List
 !Sorting
+!Queue
 
 # Do not ignore all .c files anywhere in the project
 !**/*.c
