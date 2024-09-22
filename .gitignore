@@ -8,7 +8,7 @@
 !Sorting
 !Queue
 !Stacks
-
+!Trees
 
 # Do not ignore all .c files anywhere in the project
 !**/*.c
