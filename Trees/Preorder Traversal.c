@@ -38,6 +38,22 @@ void preorder(struct Node* root) {
     }
 }
 
+void postorder(struct Node* root) {
+    if (root != NULL) {
+        postorder(root->left);   // Traverse the left subtree
+        postorder(root->right);  // Traverse the right subtree
+        printf("%d ", root->data);  // Visit the root
+    }
+}
+
+void inorder(struct Node* root) {
+    if (root != NULL) {
+        inorder(root->left);        // Traverse the left subtree
+        printf("%d ", root->data);  // Visit the root
+        inorder(root->right);       // Traverse the right subtree
+    }
+}
+
 int main() {
     struct Node* root = NULL;
     
