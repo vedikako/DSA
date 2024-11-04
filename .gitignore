@@ -9,6 +9,7 @@
 !Queue
 !Stacks
 !Trees
+!Graphs
 
 # Do not ignore all .c files anywhere in the project
 !**/*.c
