@@ -13,6 +13,7 @@
 
 # Do not ignore all .c files anywhere in the project
 !**/*.c
+!**/*.cpp
 
 # Ignore specific file types globally (e.g., object and executable files)
 *.exe
