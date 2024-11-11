@@ -1,29 +1,46 @@
 #include <stdio.h>
 
-void bubblesort(int arr[], int n){
-  
-  for(int i = 0; i< n-1; i++){
-      int min_index = i;
-      for(int j = i+1; j< n; j++){
-          if(arr[j] < arr[min_index]){
-              min_index = j;
-          }
-      }
-       int temp = arr[min_index];
-        arr[min_index] = arr[i];
+void selectionSort(int arr[], int n) {
+    int i, j, minIndex, temp;
+    
+    // Traverse through the entire array
+    for (i = 0; i < n - 1; i++) {
+        // Assume the current position holds the minimum element
+        minIndex = i;
+        
+        // Find the minimum element in the remaining unsorted array
+        for (j = i + 1; j < n; j++) {
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j;
+            }
+        }
+        
+        // Swap the found minimum element with the element at the current position
+        temp = arr[minIndex];
+        arr[minIndex] = arr[i];
         arr[i] = temp;
-  }
-  
+    }
 }
 
-int main()
-{
-    int arr[] = {10,9,8,7,6,5,4,3,2,1}, n = 10, i;
-    selectionSort(arr,n);
-    
-    for(i=0;i<n-1;i++){
-        printf("%d \n", arr[i]);
+void printArray(int arr[], int n) {
+    int i;
+    for (i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
     }
+    printf("\n");
+}
 
+int main() {
+    int arr[] = {64, 25, 12, 22, 11};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    
+    printf("Original array: ");
+    printArray(arr, n);
+    
+    selectionSort(arr, n);
+    
+    printf("Sorted array: ");
+    printArray(arr, n);
+    
     return 0;
 }
