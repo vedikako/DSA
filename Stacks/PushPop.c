@@ -1,65 +1,68 @@
 #include <stdio.h>
-#include <stdlib.h>
+#define MAX 100  // Maximum size of the stack
 
-// Define the stack node structure
-struct Node {
-    int data;
-    struct Node* next;
-    struct Node* prev;
-} *head, *tail = NULL;
+int stack[MAX];
+int top = -1;
 
-// Function to push an element onto the stack
+// Function to add an element to the stack
 void push(int value) {
-    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
-    newNode->data = value;
-    newNode->next = NULL;
-    newNode->prev = tail;
-
-    if (tail == NULL) {
-        head = newNode;
+    if (top == MAX - 1) {
+        printf("Stack Overflow! Cannot push %d\n", value);
     } else {
-        tail->next = newNode;
+        top++;
+        stack[top] = value;
+        printf("%d pushed into stack\n", value);
     }
-    tail = newNode;
-    printf("%d pushed to stack\n", value);
 }
 
-// Function to pop an element from the stack
-int pop() {
-    if (tail == NULL) {
-        printf("Stack underflow\n");
-        return -1;
-    }
-    struct Node* temp = tail;
-    int poppedValue = temp->data;
-    tail = tail->prev;
-    if (tail != NULL) {
-        tail->next = NULL;
+// Function to remove an element from the stack
+void pop() {
+    if (top == -1) {
+        printf("Stack Underflow! No element to pop\n");
     } else {
-        head = NULL;
+        printf("%d popped from stack\n", stack[top]);
+        top--;
     }
-    free(temp);
-    return poppedValue;
 }
 
-// Function to display the stack
+// Function to display the elements of the stack
 void display() {
-    struct Node* temp = head;
-    while (temp != NULL) {
-        printf("%d ", temp->data);
-        temp = temp->next;
+    if (top == -1) {
+        printf("Stack is empty\n");
+    } else {
+        printf("Stack elements are: ");
+        for (int i = top; i >= 0; i--) {
+            printf("%d ", stack[i]);
+        }
+        printf("\n");
     }
-    printf("\n");
 }
 
 int main() {
-    push(10);
-    push(20);
-    push(30);
-    printf("Stack elements: ");
-    display();
-    printf("Popped element: %d\n", pop());
-    printf("Stack elements after pop: ");
-    display();
-    return 0;
+    int choice, value;
+
+    while (1) {
+        printf("\n1. Push\n2. Pop\n3. Display\n4. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                printf("Enter value to push: ");
+                scanf("%d", &value);
+                push(value);
+                break;
+            case 2:
+                pop();
+                break;
+            case 3:
+                display();
+                break;
+            case 4:
+                printf("Exiting...\n");
+                return 0;
+            default:
+                printf("Invalid choice! Please try again.\n");
+        }
+    }
 }
